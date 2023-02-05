@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "pger"
+authors = [
+    { name = "foyou", email = "yimi.0822@qq.com" },
+]
+description = "python package generator"
+keywords = ["python", "package", "pypi", "setuptools", "generator"]
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+]
+dynamic = ["version", "dependencies"]
+
+
+[project.urls]
+"Source" = "https://github.com/foyoux/pger"
+"Homepage" = "https://github.com/foyoux/pger"
+"Bug Tracker" = "https://github.com/foyoux/pger/issues"
+
+
+[project.scripts]
+pger = "pger:main"
+
+
+[tool.setuptools]
+include-package-data = true
+
+
+[tool.setuptools.dynamic]
+version = { attr = "pger.__version__" }
+dependencies = { file = "requirements.txt" }
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
