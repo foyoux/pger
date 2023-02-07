@@ -28,11 +28,12 @@ def main():
         return
 
     package = args.package
-    if package is None and '-' not in repo:
-        package = repo
-    else:
-        print(f'package not specify and repo contains "-"')
-        return
+    if package is None:
+        if '-' in repo:
+            print(f'package not specify and repo contains "-"')
+            return
+        else:
+            package = repo
 
     pkg = PyPI(user, repo, package)
     pkg.generate()

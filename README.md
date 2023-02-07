@@ -19,5 +19,5 @@ pip install pger
 pger foyoux/pger
 pger foyoux --repo pger
 # 默认 repo 当做主包名 -> src/<repo>/__init__.py，但 repo 允许包含 "-"，但包名不可以
-pger foyoux/foyou-wilk --package wilk 
+pger --package wilk foyoux/foyou-wilk
 ```

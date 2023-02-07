@@ -31,7 +31,7 @@ dynamic = ["version", "dependencies"]
 
 
 [project.scripts]
-{repo} = "{repo}:main"
+{repo} = "{package}:main"
 
 
 [tool.setuptools]
@@ -39,7 +39,7 @@ include-package-data = true
 
 
 [tool.setuptools.dynamic]
-version = {{ attr = "{repo}.__version__" }}
+version = {{ attr = "{package}.__version__" }}
 dependencies = {{ file = "requirements.txt" }}
 
 
