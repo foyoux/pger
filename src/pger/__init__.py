@@ -14,7 +14,7 @@ def main():
 
     parser.add_argument('user', help='github username')
     parser.add_argument('--repo', help='github repository')
-    parser.add_argument('--package', help='python package name -> src/<package>/__init__.py')
+    parser.add_argument('-p', '--package', help='python package name -> src/<package>/__init__.py')
 
     args = parser.parse_args()
     user = args.user
