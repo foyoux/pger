@@ -17,10 +17,12 @@ python package generator
 ```sh
 pip install pger
 pger foyoux/pger
-pger foyoux --repo pger
-# 默认 repo 当做主包名 -> src/<repo>/__init__.py，但 repo 允许包含 "-"，但包名不可以
-# 使用 -p/--package 手动指定主包名
-pger -p wilk foyoux/foyou-wilk
+pger foyoux -r pger
+pger foyoux --repo foyou-wilk
+# 默认 repo 当做主包名，替换 "-" 为 "_" -> src/<repo>/__init__.py，但 repo 允许以非字母开头，但包名不可以
+# 此时可指定 -p/--package 选项手动指定主包名
+pger -p ticket foyoux/12306
+
 ```
 
 ## github config

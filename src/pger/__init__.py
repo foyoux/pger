@@ -13,7 +13,7 @@ def main():
     parser.add_argument('-v', '--version', action='version', version=epilog)
 
     parser.add_argument('user', help='github username')
-    parser.add_argument('--repo', help='github repository')
+    parser.add_argument('-r', '--repo', help='github repository')
     parser.add_argument('-p', '--package', help='python package name -> src/<package>/__init__.py')
 
     args = parser.parse_args()
@@ -29,11 +29,14 @@ def main():
 
     package = args.package
     if package is None:
-        if '-' in repo:
-            print(f'package not specify and repo contains "-"')
+        if not repo[0].isalpha():
+            print(f"package not specify and repo can\'t convert to package name, "
+                  f"\nbecause repo doesn't start with the alpha")
             return
         else:
-            package = repo
+            package = repo.replace('-', '_')
 
     pkg = PyPI(user, repo, package)
-    pkg.generate()
+    output = pkg.generate()
+
+    print(f'🎉 Generate github repository ready at {output.absolute()}')
