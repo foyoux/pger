@@ -38,6 +38,8 @@ pger foyoux --repo foyou-wilk
 pger -p ticket foyoux/12306
 ```
 
+> 在 Pycharm 中设置 src 为源代码根目录 （右键 src 目录 -> 将目标标记为 -> 源代码根目录）
+
 ## github config
 
 > The example above uses the new [API token](https://pypi.org/help/#apitoken) feature of PyPI, which is recommended to
