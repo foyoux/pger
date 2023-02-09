@@ -1,3 +1,4 @@
+import os.path
 from pathlib import Path
 from textwrap import dedent
 
@@ -6,11 +7,11 @@ from pger import const
 
 class PyPI:
 
-    def __init__(self, user, repo, package):
+    def __init__(self, user, repo, package, output=None):
         self.user = user
         self.repo = repo
         self.package = package
-        self.output = Path(repo)
+        self.output = Path(os.path.abspath(output) if output else repo)
         self.output.mkdir(parents=True, exist_ok=True)
         self.src = self.output / 'src'
         (self.src / 'templates').mkdir(parents=True, exist_ok=True)

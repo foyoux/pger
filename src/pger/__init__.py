@@ -16,6 +16,8 @@ def main():
     parser.add_argument('-r', '--repo', help='github repository')
     parser.add_argument('-p', '--package', help='python package name -> src/<package>/__init__.py')
 
+    parser.add_argument('-o', '--output', help='output directory')
+
     args = parser.parse_args()
     user = args.user
     if '/' in user:
@@ -36,7 +38,7 @@ def main():
         else:
             package = repo.replace('-', '_')
 
-    pkg = PyPI(user, repo, package)
+    pkg = PyPI(user, repo, package, args.output)
     output = pkg.generate()
 
     print(f'🎉 Generate github repository ready at {output.absolute()}')
