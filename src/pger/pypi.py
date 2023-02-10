@@ -44,9 +44,7 @@ class PyPI:
         (self.output / const.REQUIREMENTS).write_text('')
 
     def started(self):
-        (self.workflows / const.STARTED).write_text(
-            (const.templates / const.STARTED).read_text().format(**self.__dict__)
-        )
+        (self.workflows / const.STARTED).write_text((const.templates / const.STARTED).read_text())
 
     def update(self):
         (self.workflows / const.UPDATE).write_text(
